@@ -1,0 +1,144 @@
+<html>
+<head>
+	<title>Dear 45 Postcard</title>
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+  	<style>	
+		/* entire container, keeps perspective */
+		.flip-container {
+			-webkit-perspective: 1000;
+			-moz-perspective: 1000;
+			-ms-perspective: 1000;
+			perspective: 1000;
+
+			-ms-transform: perspective(1000px);
+			-moz-transform: perspective(1000px);
+    		-moz-transform-style: preserve-3d; 
+    		-ms-transform-style: preserve-3d; 
+		}
+
+
+		/* START: Accommodating for IE */
+		/* flip the pane when flip class activated on click */
+		.flip-container.flip .back {
+	    -webkit-transform: rotateY(0deg);
+	    -moz-transform: rotateY(0deg);
+	    -o-transform: rotateY(0deg);
+	    -ms-transform: rotateY(0deg);
+	    transform: rotateY(0deg);
+	}
+
+		.flip-container.flip .front {
+		    -webkit-transform: rotateY(180deg);
+		    -moz-transform: rotateY(180deg);
+		    -o-transform: rotateY(180deg);
+		    transform: rotateY(180deg);
+		}
+		/* END: Accommodating for IE */
+
+		/*CHANGE WIDTH AND HEIGHT TO DIMENSION OF IMAGES BELOW*/
+		.flip-container, .front, .back {
+			max-width:600px;
+			width:100%;
+			height: auto;
+		}
+
+		/*Flip speed goes here*/
+		.flipper {
+			-webkit-transition: 0.8s;
+			-webkit-transform-style: preserve-3d;
+
+			-ms-transition: 0.8s;
+			-ms-transform-style: preserve-3d;
+
+			-moz-transition: 0.8s;
+			-moz-transform-style: preserve-3d;
+
+			transition: 0.8s;
+			transform-style: preserve-3d;
+
+			position: relative;
+		}
+
+		/* hide back of pane during swap */
+		.front, .back {
+			-webkit-backface-visibility: hidden;
+			-moz-backface-visibility: hidden;
+			-ms-backface-visibility: hidden;
+			backface-visibility: hidden;
+
+		    -webkit-transition: 0.8s;
+		    -webkit-transform-style: preserve-3d;
+		    -webkit-transform: rotateY(0deg);
+
+		    -moz-transition: 0.8s;
+		    -moz-transform-style: preserve-3d;
+		    -moz-transform: rotateY(0deg);
+
+		    -o-transition: 0.8s;
+		    -o-transform-style: preserve-3d;
+		    -o-transform: rotateY(0deg);
+
+		    -ms-transition: 0.8s;
+		    -ms-transform-style: preserve-3d;
+		    -ms-transform: rotateY(0deg);
+
+		    transition: 0.8s;
+		    transform-style: preserve-3d;
+		    transform: rotateY(0deg);
+
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		/* front pane, placed above back */
+		.front {
+			-webkit-transform: rotateY(0deg);
+			-ms-transform: rotateY(0deg);
+			z-index: 2;
+			box-shadow: -5px 5px 5px #aaa;
+		}
+
+		/* back, initially hidden pane */
+		.back {
+			-webkit-transform: rotateY(-180deg);
+		    -moz-transform: rotateY(-180deg);
+		    -o-transform: rotateY(-180deg);
+		    -ms-transform: rotateY(-180deg);
+		    transform: rotateY(-180deg);
+		    box-shadow: 5px 5px 5px #aaa;
+		}
+		
+		.front img, .back img {		
+			width:100%;
+			height:auto;
+			cursor:pointer;
+			}
+		
+	
+  	</style>
+
+  </head>
+  <body>
+	<div class="flip-container" id="flip-toggle" onclick="myFunction()">
+		<div class="flipper">
+			<div class="front">
+				<!--UPDATE THIS IMG SRC FOR FRONT OF CARD-->
+				<img src="https://www.uschamber.com/app/dear45/IowaHerring/Iowa.Herring.1.png">
+			</div>
+			<div class="back">
+				<!--UPDATE THIS IMG SRC FOR BACK OF CARD-->
+				<img src="https://www.uschamber.com/app/dear45/IowaHerring/Iowa.Herring.2.png">
+			</div>
+		</div>
+	</div>
+	  <script src="https://www.uschamber.com/sites/all/themes/uscoc/js/jquery-upgrade/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      //when container is clicked on, toggle between the flip class.
+    function myFunction(){
+    document.querySelector("#flip-toggle").classList.toggle("flip")
+}
+   </script>
+
+  </body>
+  </html>
